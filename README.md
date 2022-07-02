@@ -21,7 +21,7 @@ dictPath = "dict.txt"
 # ![image](https://user-images.githubusercontent.com/57278197/176987668-81ece070-63ee-4b2a-a715-0fcf56ba8e4f.png)
 
 4. 控制台输入SiteJsEncrypt.js脚本内容
-请求地址替换为要加密的字典路径
+请求地址替换为要加密的字典路径，删除所有断点，运行到结束。
 xhr.open('GET', 'http://127.0.0.1:5000/dict');
 ```
 let xhr = new XMLHttpRequest();
