@@ -23,6 +23,7 @@ dictPath = "dict.txt"
 4. 控制台输入SiteJsEncrypt.js脚本内容
 请求地址替换为要加密的字典路径，删除所有断点，运行到结束。
 xhr.open('GET', 'http://127.0.0.1:5000/dict');
+n = s(p,e,r); 加密算法根据网站进行替换。
 ```
 let xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://127.0.0.1:5000/dict');
@@ -40,6 +41,7 @@ xhr.onload = function() {
   for(let i=0;i<as.length;i++)
   {
 	p = as[i].replace(/\"|\\n|\s+/g,"");
+	// 替换加密算法
 	n = s(p,e,r);
 	console.log(n);
 	psa = psa + n+ "\n";
