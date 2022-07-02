@@ -5,14 +5,14 @@
 
 ## SiteJsEncrypt解决方案
 1. 利用chrome动态调试功能运行到加密算法上下文环境。
-2. 采用python开启http服务用于js获取字典。
+2. 采用python flask开启http服务用于js获取字典。
 3. 网站运行到加密算法时，在控制台利用js xhr获取字典并加密。
 4. 加密后密文通过js写入本地文件。
 
 ## 步骤
-1. python开启http服务
+1. python开启http服务，dictPath改为字典文件路径
 ```
-python -m http.server 5000
+dictPath = "dict.txt"
 ```
 2. 找到加密算法并下断点
 # ![image](https://user-images.githubusercontent.com/57278197/176987563-12df5152-398a-46cc-a06f-a52bae39fe87.png)
@@ -22,10 +22,10 @@ python -m http.server 5000
 
 4. 控制台输入SiteJsEncrypt.js脚本内容
 请求地址替换为要加密的字典路径
-xhr.open('GET', 'http://127.0.0.1:5000/dict.txt');
+xhr.open('GET', 'http://127.0.0.1:5000/dict');
 ```
 let xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://127.0.0.1:5000/dict.txt');
+xhr.open('GET', 'http://127.0.0.1:5000/dict');
 xhr.send();
 xhr.onload = function() {
   let as = xhr.responseText.split(",");
