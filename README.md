@@ -17,4 +17,35 @@ python -m http.server 5000
 2. 找到加密算法并下断点
 # ![image](https://user-images.githubusercontent.com/57278197/176987563-12df5152-398a-46cc-a06f-a52bae39fe87.png)
 
+3. 运行到加密算法处
+# ![image](https://user-images.githubusercontent.com/57278197/176987668-81ece070-63ee-4b2a-a715-0fcf56ba8e4f.png)
+
+4. 控制台输入SiteJsEncrypt.js脚本内容
+请求地址替换为要加密的字典路径
+xhr.open('GET', 'http://127.0.0.1:5000/dict.txt');
+```
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://127.0.0.1:5000/dict.txt');
+xhr.send();
+xhr.onload = function() {
+  let as = xhr.responseText.split(",");
+  let psa = "";
+  function writeFile(fileName, content){
+    let a= document.createElement('a');
+    let blob = new Blob([content],{type:'text/plain'});
+    a.download = fileName;
+    a.href = URL.createObjectURL(blob);
+    a.click();
+	};
+  for(let i=0;i<as.length;i++)
+  {
+	p = as[i].replace(/\"|\\n|\s+/g,"");
+	n = s(p,e,r);
+	console.log(n);
+	psa = psa + n+ "\n";
+  };
+  writeFile("pass.txt",psa);
+};
+```
+
 
