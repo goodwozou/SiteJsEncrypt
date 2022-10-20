@@ -49,5 +49,10 @@ xhr.onload = function() {
   writeFile("pass.txt",psa);
 };
 ```
+## 问题
+1. 不安全的连接
+![image](https://user-images.githubusercontent.com/57278197/196833361-d62457c9-48f5-4b1f-b58d-28445c4ff2df.png)
+
+
 
 
