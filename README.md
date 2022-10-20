@@ -26,27 +26,28 @@ xhr.open('GET', 'http://127.0.0.1:5000/dict');
 n = s(p,e,r); 加密算法根据网站进行替换。
 ```
 let xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://127.0.0.1:5000/dict');
+xhr.open('GET', 'http://127.0.0.1:5000/');
 xhr.send();
 xhr.onload = function() {
-  let as = xhr.responseText.split(",");
-  let psa = "";
-  function writeFile(fileName, content){
-    let a= document.createElement('a');
-    let blob = new Blob([content],{type:'text/plain'});
-    a.download = fileName;
-    a.href = URL.createObjectURL(blob);
-    a.click();
-	};
-  for(let i=0;i<as.length;i++)
-  {
-	p = as[i].replace(/\"|\\n|\s+/g,"");
-	// 替换加密算法
-	n = s(p,e,r);
-	console.log(n);
-	psa = psa + n+ "\n";
-  };
-  writeFile("pass.txt",psa);
+    let as = xhr.responseText.split("\n");
+    console.log(as);
+    let psa = "";
+    function writeFile(fileName, content){
+        let a= document.createElement('a');
+        let blob = new Blob([content],{type:'text/plain'});
+        a.download = fileName;
+        a.href = URL.createObjectURL(blob);
+        a.click();
+    };
+    for(let i=0;i<as.length;i++)
+    {
+        p = as[i].replace(/\"|\\n|\s+/g,"");
+        // 替换加密算法
+        n = s(p,e,r);
+        console.log(n);
+        psa = psa + n+ "\n";
+    };
+    writeFile("pass.txt",psa);
 };
 ```
 ## 问题
