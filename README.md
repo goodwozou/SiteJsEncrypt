@@ -41,9 +41,10 @@ xhr.onload = function() {
     };
     for(let i=0;i<as.length;i++)
     {
-        p = as[i].replace(/\"|\\n|\s+/g,"");
+        let p = as[i].replace(/\"|\\n|\s+/g,"");
+        //console.log(p);
         // 替换加密算法
-        n = s(p,e,r);
+        let n = Q["a"].aesEncrypt(p);
         console.log(n);
         psa = psa + n+ "\n";
     };
