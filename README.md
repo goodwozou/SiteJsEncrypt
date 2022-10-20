@@ -67,11 +67,15 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/')
 def password():
    with open("newp.txt","r") as file:
-       f = file.readlines()
-   return f
+       str =""
+       fs = file.readlines()
+       for f in fs:
+           str = str + f 
+   return str
 
 if __name__ == '__main__':
    app.run()
+
 ```
 
 
