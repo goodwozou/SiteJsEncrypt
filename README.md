@@ -57,7 +57,22 @@ xhr.onload = function() {
 不安全内容改为允许
 # ![image](https://user-images.githubusercontent.com/57278197/196833909-10743fa4-d6a5-44af-ab80-6c7c8f4617c6.png)
 
+### 问题2: 解决跨域问题
+```
+from flask import Flask
+from flask_cors import *
 
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
+@app.route('/')
+def password():
+   with open("newp.txt","r") as file:
+       f = file.readlines()
+   return f
+
+if __name__ == '__main__':
+   app.run()
+```
 
 
 
